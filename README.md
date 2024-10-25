@@ -14,10 +14,9 @@ in Rust. You can find problems I've solved
 
 ```bash
 ├── src
-│   ├── problems
-│   │    ├── leetcode1281.rs
-│   │    ├── leetcode1365.rs
-│   │    └── ...
+│   ├── leetcode1281.rs
+│   ├── leetcode1365.rs
+│   ├── ...
 │   └── main.rs
 ├── target
 ├── Cargo.lock
