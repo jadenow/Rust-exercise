@@ -6,6 +6,7 @@ mod leetcode1431;
 mod leetcode1470;
 mod leetcode1480;
 mod leetcode1512;
+mod leetcode1528;
 mod leetcode1672;
 mod leetcode1720;
 mod leetcode1773;
