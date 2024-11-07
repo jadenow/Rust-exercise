@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 mod leetcode1108;
 mod leetcode1281;
 mod leetcode1290;
@@ -5,6 +6,7 @@ mod leetcode1313;
 mod leetcode1365;
 mod leetcode1431;
 mod leetcode1470;
+mod leetcode1342;
 mod leetcode1480;
 mod leetcode1512;
 mod leetcode1528;
