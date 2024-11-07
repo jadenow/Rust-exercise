@@ -15,5 +15,6 @@ mod leetcode1929;
 mod leetcode2114;
 mod leetcode2160;
 mod leetcode2235;
+mod leetcode2325;
 mod leetcode771;
 fn main() {}
