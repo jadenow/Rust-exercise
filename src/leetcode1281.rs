@@ -1,10 +1,12 @@
+use std::convert::TryFrom;
+#[allow(dead_code)]
 pub fn solution(n: i32) -> i32 {
     println!("Substract the Product and Sum of Digits of an Integer");
 
     let mut digit_product: i32 = 1;
     let mut digit_sum: i32 = 0;
     let mut m = n;
-    let nsize: u32 = n.to_string().len() as u32;
+    let nsize: u32 = u32::try_from(n.to_string().len()).expect("number length is within u32 range");
     let base: i32 = 10;
     let mut divisor: i32 = base.pow(nsize - 1);
 

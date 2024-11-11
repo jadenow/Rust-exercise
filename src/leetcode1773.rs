@@ -1,21 +1,27 @@
 use std::collections::HashMap;
-fn solution(items: Vec<Vec<String>>, rule_key: String, rule_value: String) -> i32 {
+use std::convert::TryFrom;
+#[allow(dead_code)]
+fn solution(items: &[Vec<String>], rule_key: &str, rule_value: &str) -> i32 {
     let mut rules = HashMap::new();
-    rules.insert(String::from("type"), 0 as usize);
-    rules.insert(String::from("color"), 1 as usize);
-    rules.insert(String::from("name"), 2 as usize);
+    rules.insert(String::from("type"), 0_usize);
+    rules.insert(String::from("color"), 1_usize);
+    rules.insert(String::from("name"), 2_usize);
 
-    items
-        .iter()
-        .filter(|item| {
-            item[*rules
-                .get(&rule_key)
-                .expect("rule key is type, color, or name")]
-                == rule_value
-        })
-        .count() as i32
+    i32::try_from(
+        items
+            .iter()
+            .filter(|item| {
+                item[*rules
+                    .get(rule_key)
+                    .expect("rule key is type, color, or name")]
+                    == rule_value
+            })
+            .count(),
+    )
+    .expect("Count is within i32 range")
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -41,6 +47,6 @@ mod tests {
         let rule_key = String::from("color");
         let rule_value = String::from("silver");
         let desired = 1;
-        assert_eq!(solution(items, rule_key, rule_value), desired);
+        assert_eq!(solution(&items, &rule_key, &rule_value), desired);
     }
 }

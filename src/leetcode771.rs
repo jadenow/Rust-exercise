@@ -1,16 +1,17 @@
-fn solution(jewels: String, stones: String) -> i32 {
-    stones.chars().filter(|&s| jewels.contains(s)).count() as i32
+#[allow(dead_code)]
+fn solution(jewels: &str, stones: &str) -> usize {
+    stones.chars().filter(|s| jewels.contains(*s)).count()
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
-
     #[test]
     fn leetcode771_case1() {
         let jewels: String = String::from("aA");
         let stones: String = String::from("aAAbbbb");
-        let desired: i32 = 3;
+        let desired: usize = 3;
 
-        assert_eq!(solution(jewels, stones), desired);
+        assert_eq!(solution(&jewels, &stones), desired);
     }
 }

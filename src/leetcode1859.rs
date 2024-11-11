@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
-
-fn solution(s: String) -> String {
+#[allow(dead_code)]
+fn solution(s: &str) -> String {
     let mut word_map = BTreeMap::new();
 
     s.split_whitespace().for_each(|word| {
@@ -18,6 +18,7 @@ fn solution(s: String) -> String {
     word_map.values().cloned().collect::<Vec<_>>().join(" ")
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -25,6 +26,6 @@ mod tests {
     fn leetcode1859_case1() {
         let sentence: String = String::from("is2 sentence4 This1 a3");
         let desired: String = String::from("This is a sentence");
-        assert_eq!(solution(sentence), desired);
+        assert_eq!(solution(&sentence), desired);
     }
 }

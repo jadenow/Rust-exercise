@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn solution(encoded: Vec<i32>, first: i32) -> Vec<i32> {
     std::iter::once(first)
         .chain(encoded.into_iter().scan(first, |now, val| {
@@ -7,6 +8,7 @@ fn solution(encoded: Vec<i32>, first: i32) -> Vec<i32> {
         .collect()
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 

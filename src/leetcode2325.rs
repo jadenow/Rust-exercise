@@ -1,5 +1,6 @@
 use std::collections::HashMap;
-fn solution(key: String, message: String) -> String {
+#[allow(dead_code)]
+fn solution(key: &str, message: &str) -> String {
     let mut table = HashMap::new();
     key.chars()
         .filter(|&c| c != ' ')
@@ -25,6 +26,7 @@ fn solution(key: String, message: String) -> String {
         .collect()
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -34,6 +36,6 @@ mod tests {
         let message: String = String::from("vkbs bs t suepuv");
         let desired = String::from("this is a secret");
 
-        assert_eq!(solution(key, message), desired);
+        assert_eq!(solution(&key, &message), desired);
     }
 }
