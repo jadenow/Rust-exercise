@@ -6,6 +6,7 @@
 /// # Returns
 /// * `Ok<u32>` - If the computation is successful, the result is returned as a `u32`.
 /// * `Err<&'static str>` - If an invalid digit is encountered during processing.
+///
 /// # Errors
 /// This function returns an error if the conversion of characters to digits fails. For example,
 /// if the input contains invalid characters (not a concern for `u32` input as all characters are digits).

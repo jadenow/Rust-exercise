@@ -1,8 +1,10 @@
 #[must_use]
 pub fn solution(nums: Vec<i32>, index: Vec<usize>) -> Vec<i32> {
-    let capacity = nums.len(); // Get the length of nums before consuming it
-    nums.into_iter()
-        .zip(index)
+    let capacity = nums.len();
+    let pairs: Vec<(i32, usize)> = nums.into_iter().zip(index).collect();
+
+    pairs
+        .into_iter()
         .fold(Vec::with_capacity(capacity), |mut result, (num, idx)| {
             result.insert(idx, num);
             result
