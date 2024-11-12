@@ -11,7 +11,7 @@ impl ListNode {
     }
 }
 
-#[must_use]
+#[must_use = "The return value indicates the decimal value of the binary number."]
 pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
     std::iter::successors(head, |node| node.next.clone())
         .map(|node| node.val)
