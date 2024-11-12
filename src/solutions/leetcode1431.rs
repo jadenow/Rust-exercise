@@ -1,14 +1,14 @@
-#[allow(dead_code)]
-fn solution(candies: &[i32], extra_candies: i32) -> Vec<bool> {
+#[must_use]
+pub fn solution(candies: &[i32], extra_candies: i32) -> Vec<bool> {
     println!("Kids With the Greatest Number of Candies");
-
-    let max_candies = candies.iter().max().unwrap();
-    let result: Vec<bool> = candies
-        .iter()
-        .map(|&child| child + extra_candies >= *max_candies)
-        .collect();
-
-    result
+    if let Some(&max_candies) = candies.iter().max() {
+        candies
+            .iter()
+            .map(|&child| child + extra_candies >= max_candies)
+            .collect()
+    } else {
+        Vec::new() // Return an empty vector if the slice is empty
+    }
 }
 #[cfg(test)]
 mod tests {

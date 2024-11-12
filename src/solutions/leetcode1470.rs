@@ -1,18 +1,14 @@
-use std::convert::TryInto;
-#[allow(dead_code)]
-fn solution(nums: &[i32], n: i32) -> Vec<i32> {
+#[must_use]
+pub fn solution(nums: &[i32], n: usize) -> Vec<i32> {
     println!("1470. Shuffle the Array");
 
-    let nsize = n.try_into().expect("n is non-negative");
+    let (first_half, second_half) = nums.split_at(n);
 
-    let mut ans = Vec::new();
-
-    for i in 0..nsize {
-        ans.push(nums[i]);
-        ans.push(nums[i + nsize]);
-    }
-
-    ans
+    first_half
+        .iter()
+        .zip(second_half.iter())
+        .flat_map(|(&x, &y)| vec![x, y])
+        .collect()
 }
 #[cfg(test)]
 mod tests {

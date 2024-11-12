@@ -1,5 +1,5 @@
-#[allow(dead_code)]
-fn solution(nums: &[i32]) -> Vec<i32> {
+#[must_use]
+pub fn solution(nums: &[i32]) -> Vec<i32> {
     nums.iter()
         .scan(0, |sum, &n| {
             *sum += n;
