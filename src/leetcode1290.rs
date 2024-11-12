@@ -11,6 +11,7 @@ impl ListNode {
     }
 }
 
+#[allow(dead_code)]
 pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
     let mut now = head;
     let mut result = 0;
@@ -23,11 +24,12 @@ pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
 }
 
 //create a linked list fot testing
-fn create_linked_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
+#[allow(dead_code)]
+fn create_linked_list(nums: &[i32]) -> Option<Box<ListNode>> {
     let mut head = None;
     let mut now = &mut head;
 
-    for &val in nums.iter() {
+    for &val in nums {
         let new_node = Box::new(ListNode::new(val));
         *now = Some(new_node);
         now = &mut now.as_mut().expect("this node has a next link").next;
@@ -36,12 +38,14 @@ fn create_linked_list(nums: Vec<i32>) -> Option<Box<ListNode>> {
     head
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn leetcode1290_case1() {
-        let head = create_linked_list(vec![1, 0, 1]);
+        let nums = vec![1, 0, 1];
+        let head = create_linked_list(&nums);
         let desired = 5;
 
         assert_eq!(get_decimal_value(head), desired);

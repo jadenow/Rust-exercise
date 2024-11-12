@@ -1,14 +1,20 @@
-fn solution(s: String, indices: Vec<i32>) -> String {
+use std::convert::TryInto;
+#[allow(dead_code)]
+fn solution(s: &str, indices: &[i32]) -> String {
     s.chars()
         .enumerate()
         .fold(vec![' '; s.len()], |mut shuffled, (idx, val)| {
-            shuffled[indices[idx] as usize] = val;
+            let index: usize = indices[idx]
+                .try_into()
+                .expect("index is non-negative value");
+            shuffled[index] = val;
             shuffled
         })
         .into_iter()
         .collect()
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -18,6 +24,6 @@ mod tests {
         let indices: Vec<i32> = vec![4, 5, 6, 7, 0, 1, 2, 3];
         let desired: String = String::from("leetcode");
 
-        assert_eq!(solution(s, indices), desired);
+        assert_eq!(solution(&s, &indices), desired);
     }
 }

@@ -1,11 +1,16 @@
-fn solution(sentences: Vec<String>) -> i32 {
-    sentences
-        .iter()
-        .map(|s| s.split_whitespace().count())
-        .max()
-        .expect("Sentence is not empty") as i32
+#[allow(dead_code)]
+fn solution(sentences: &[String]) -> i32 {
+    i32::try_from(
+        sentences
+            .iter()
+            .map(|s| s.split_whitespace().count())
+            .max()
+            .expect("Sentence is not empty"),
+    )
+    .expect("Word count is within i32 range")
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -18,6 +23,6 @@ mod tests {
         ];
         let desired: i32 = 6;
 
-        assert_eq!(solution(sentences), desired);
+        assert_eq!(solution(&sentences), desired);
     }
 }

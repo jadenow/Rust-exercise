@@ -1,8 +1,15 @@
-fn solution(operations: Vec<String>) -> i32 {
-    operations.iter().filter(|&op| op.contains('+')).count() as i32
-        - operations.iter().filter(|&op| op.contains('-')).count() as i32
+use std::convert::TryFrom;
+#[allow(dead_code)]
+fn solution(operations: &[String]) -> i32 {
+    let increment_count = i32::try_from(operations.iter().filter(|&op| op.contains('+')).count())
+        .expect("The count is within the i32 range");
+    let decrement_count = i32::try_from(operations.iter().filter(|&op| op.contains('-')).count())
+        .expect("The count is within the i32 range");
+
+    increment_count - decrement_count
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -15,6 +22,6 @@ mod tests {
         ];
         let desired: i32 = 1;
 
-        assert_eq!(solution(operations), desired);
+        assert_eq!(solution(&operations), desired);
     }
 }

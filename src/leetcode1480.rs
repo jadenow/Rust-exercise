@@ -1,4 +1,5 @@
-fn solution(nums: Vec<i32>) -> Vec<i32> {
+#[allow(dead_code)]
+fn solution(nums: &[i32]) -> Vec<i32> {
     nums.iter()
         .scan(0, |sum, &n| {
             *sum += n;
@@ -7,6 +8,7 @@ fn solution(nums: Vec<i32>) -> Vec<i32> {
         .collect()
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 
@@ -15,6 +17,6 @@ mod tests {
         let nums: Vec<i32> = vec![1, 2, 3, 4];
         let desired: Vec<i32> = vec![1, 3, 6, 10];
 
-        assert_eq!(solution(nums), desired);
+        assert_eq!(solution(&nums), desired);
     }
 }

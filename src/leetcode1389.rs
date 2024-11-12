@@ -1,13 +1,17 @@
+use std::convert::TryInto;
+#[allow(dead_code)]
 fn solution(nums: Vec<i32>, index: Vec<i32>) -> Vec<i32> {
     let mut result: Vec<i32> = Vec::with_capacity(nums.len());
 
     for (num, idx) in nums.into_iter().zip(index.into_iter()) {
-        result.insert(idx as usize, num);
+        let index: usize = idx.try_into().expect("index is non-negative");
+        result.insert(index, num);
     }
 
     result
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 

@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn solution(mut num: i32) -> i32 {
     let mut cnt = 0;
     while num > 0 {
@@ -10,6 +11,7 @@ fn solution(mut num: i32) -> i32 {
     cnt
 }
 
+#[cfg(test)]
 mod tests {
     use super::*;
 

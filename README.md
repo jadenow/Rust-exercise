@@ -6,9 +6,9 @@ in Rust. You can find problems I've solved
 
 ## Table of Contents
 
-- [File Structure](#file-structure)
-- [Getting Started](#getting-started)
-- [Prerequisites](#prerequisites)
+* [File Structure](#file-structure)
+* [Getting Started](#getting-started)
+* [Prerequisites](#prerequisites)
 
 ## File Structure
 
@@ -31,8 +31,8 @@ machine. Your can install Rust using [rustup](https://rustup.rs/).
 
 ### Prerequisites
 
-- [Rust](https://www.rust-lang.org/) (latest stable version)
-- Cargo (comes with Rust)
+* [Rust](https://www.rust-lang.org/) (latest stable version)
+* Cargo (comes with Rust)
 
 ### Clone the Repository
 
