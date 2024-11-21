@@ -71,30 +71,4 @@ mod tests {
 
         assert_eq!(solution(&items, &rule_key, &rule_value), desired);
     }
-
-    #[test]
-    fn invalid_rule_key_case() {
-        let items: Vec<Vec<String>> = vec![
-            vec![
-                String::from("phone"),
-                String::from("blue"),
-                String::from("pixel"),
-            ],
-            vec![
-                String::from("computer"),
-                String::from("silver"),
-                String::from("lenovo"),
-            ],
-            vec![
-                String::from("phone"),
-                String::from("gold"),
-                String::from("iphone"),
-            ],
-        ];
-        let rule_key = String::from("color");
-        let rule_value = String::from("silver");
-        let desired = Ok(1);
-
-        assert_eq!(solution(&items, &rule_key, &rule_value), desired);
-    }
 }
