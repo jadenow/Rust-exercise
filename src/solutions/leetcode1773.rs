@@ -1,24 +1,22 @@
-use std::collections::HashMap;
-use std::convert::TryFrom;
-#[allow(dead_code)]
-fn solution(items: &[Vec<String>], rule_key: &str, rule_value: &str) -> i32 {
-    let mut rules = HashMap::new();
-    rules.insert(String::from("type"), 0_usize);
-    rules.insert(String::from("color"), 1_usize);
-    rules.insert(String::from("name"), 2_usize);
+#[must_use]
+pub fn solution(items: &[Vec<String>], rule_key: &str, rule_value: &str) -> usize {
+    let rule_index = match rule_key {
+        "type" => 0,
+        "color" => 1,
+        "name" => 2,
+        _ => return 0,
+    };
 
-    i32::try_from(
-        items
-            .iter()
-            .filter(|item| {
-                item[*rules
-                    .get(rule_key)
-                    .expect("rule key is type, color, or name")]
-                    == rule_value
-            })
-            .count(),
-    )
-    .expect("Count is within i32 range")
+    items
+        .iter()
+        .filter(|item| {
+            if let Some(value) = item.get(rule_index) {
+                value == rule_value
+            } else {
+                false
+            }
+        })
+        .count()
 }
 
 #[cfg(test)]

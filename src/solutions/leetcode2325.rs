@@ -1,6 +1,6 @@
 use std::collections::HashMap;
-#[allow(dead_code)]
-fn solution(key: &str, message: &str) -> String {
+#[must_use]
+pub fn solution(key: &str, message: &str) -> String {
     let mut table = HashMap::new();
     key.chars()
         .filter(|&c| c != ' ')

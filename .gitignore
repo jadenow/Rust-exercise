@@ -1,0 +1,19 @@
+# Ignore Rust build directory
+target/
+.history/
+
+# Ignore editor-specific files
+*.swp
+*.swo
+*.swn
+*.tmp
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore compiled binaries
+*.exe
+*.out
+*.o
+*.d
+*.so

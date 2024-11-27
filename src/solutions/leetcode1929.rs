@@ -1,5 +1,5 @@
-#[allow(dead_code)]
-fn solution(nums: &[i32]) -> Vec<i32> {
+#[must_use]
+pub fn solution(nums: &[i32]) -> Vec<i32> {
     println!("1929. Concatenation of Array");
 
     let mut ans: Vec<i32> = nums.to_owned();

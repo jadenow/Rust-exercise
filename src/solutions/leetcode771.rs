@@ -1,5 +1,5 @@
-#[allow(dead_code)]
-fn solution(jewels: &str, stones: &str) -> usize {
+#[must_use]
+pub fn solution(jewels: &str, stones: &str) -> usize {
     stones.chars().filter(|s| jewels.contains(*s)).count()
 }
 

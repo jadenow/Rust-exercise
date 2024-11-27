@@ -1,5 +1,5 @@
-#[allow(dead_code)]
-fn solution(address: &str) -> String {
+#[must_use]
+pub fn solution(address: &str) -> String {
     address.replace('.', "[.]")
 }
 

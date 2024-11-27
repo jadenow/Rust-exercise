@@ -11,31 +11,18 @@ impl ListNode {
     }
 }
 
-#[allow(dead_code)]
+#[must_use]
 pub fn get_decimal_value(head: Option<Box<ListNode>>) -> i32 {
-    let mut now = head;
-    let mut result = 0;
-
-    while let Some(node) = now {
-        result = (result << 1) | node.val;
-        now = node.next;
-    }
-    result
+    std::iter::successors(head, |node| node.next.clone())
+        .map(|node| node.val)
+        .fold(0, |acc, val| (acc << 1) | val)
 }
 
-//create a linked list fot testing
-#[allow(dead_code)]
+#[must_use]
 fn create_linked_list(nums: &[i32]) -> Option<Box<ListNode>> {
-    let mut head = None;
-    let mut now = &mut head;
-
-    for &val in nums {
-        let new_node = Box::new(ListNode::new(val));
-        *now = Some(new_node);
-        now = &mut now.as_mut().expect("this node has a next link").next;
-    }
-
-    head
+    nums.iter()
+        .rev()
+        .fold(None, |next, &val| Some(Box::new(ListNode { val, next })))
 }
 
 #[cfg(test)]
